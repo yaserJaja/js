@@ -1,0 +1,3 @@
+JSON: Java Script Object Notation.
+API: Application Programming Interface.
+CDN: Content Delivery Network

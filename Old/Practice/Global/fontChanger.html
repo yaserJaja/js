@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Font Changer</title>
+  </head>
+  <body>
+    <select id="fonts"></select>
+    <p id="p">Testing Font Here</p>
+    <script>
+      let p = document.getElementById("p");
+      let fonts = document.getElementById("fonts");
+      function addFont(name) {
+        let font = document.createElement("option");
+        font.setAttribute("value", name);
+        font.innerHTML = name;
+        fonts.append(font);
+      }
+      fonts.onchange = function () {
+        p.style.fontFamily = this.value;
+      };
+      addFont("Open Sans");
+      addFont("Arial");
+      addFont("System-ui");
+    </script>
+  </body>
+</html>

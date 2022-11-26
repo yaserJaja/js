@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="data"></div>
+    <script>
+      let data = document.getElementById("data");
+      let async = new XMLHttpRequest();
+      async.open("GET", "articles.json");
+      async.send();
+      async.onreadystatechange = function () {
+        if (this.readyState === 4 && this.status === 200) {
+          // console.log(this.responseText);
+          let mainData = JSON.parse(this.responseText);
+          // console.log(mainData);
+          let updatedData = JSON.stringify(mainData);
+          // console.log(updatedData);
+          for (let i = 0; i < mainData.length; i++) {
+            let container = document.createElement("div");
+            let title = document.createElement("h2");
+            let author = document.createElement("p");
+            let category = document.createElement("p");
+            let content = document.createElement("p");
+            title.innerHTML = mainData[i].ArticleName;
+            author.innerHTML = "Author: " + mainData[i].Author;
+            category.innerHTML = "Category: " + mainData[i].Category;
+            content.innerHTML = mainData[i].Content;
+            container.appendChild(title);
+            container.appendChild(content);
+            container.appendChild(author);
+            container.appendChild(category);
+            data.append(container);
+          }
+        }
+      };
+    </script>
+  </body>
+</html>

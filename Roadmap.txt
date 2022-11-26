@@ -1,0 +1,31 @@
+[1] Basic:
+  # Syntax
+  # input
+  # Output
+  # Variables
+  # Data Types With Properties And Method
+    * String
+    * Number
+    * Boolean
+    * Array + 
+    * Object + 
+  # Conditions +
+  # Loops
+  # Functions +
+  # Date
+  # Regular Expression
+[2] Advanced
+  # ES
+  # DOM
+  # BOM
+  # OOP
+  # JSON And AJAX
+  # Promies
+  # Destructing
+  # Moduls
+[3] TypeScript
+[4] Node JS
+[5] React JS
+[6] React Native
+[7] Electron JS
+[8] Jest Unit

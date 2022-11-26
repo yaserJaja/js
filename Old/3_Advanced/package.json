@@ -1,0 +1,18 @@
+{
+  "name": "advanced",
+  "version": "1.0.0",
+  "description": "this is yaser tutorial es",
+  "main": "\u001b[B\u001b[D\u001b[D\u001b[D\u001bindex",
+  "scripts": {
+    "start": "nodemon --exec babel-node 8_Moduls.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Yaser",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.18.6",
+    "@babel/node": "^7.18.6",
+    "@babel/preset-env": "^7.18.6",
+    "nodemon": "^2.0.18"
+  }
+}

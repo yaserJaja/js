@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "Author": "Yaser",
+    "BookName": "Javascript",
+    "Category": "Web",
+    "ArticleName": "JSON",
+    "Content": "Javascript is a beautiful langauge."
+  },
+  {
+    "id": 2,
+    "Author": "Osama",
+    "BookName": "PHP",
+    "Category": "Web",
+    "ArticleName": "Form",
+    "Content": "PHP is a beautiful langauge."
+  },
+  {
+    "id": 3,
+    "Author": "Gamal",
+    "BookName": "CS50",
+    "Category": "Computer Siences",
+    "ArticleName": "Algorithm",
+    "Content": "CS50 is a beautiful Content."
+  },
+  {
+    "id": 4,
+    "Author": "Essa",
+    "BookName": "Framework JS",
+    "Category": "Web",
+    "ArticleName": "React",
+    "Content": "React is a beautiful framework."
+  },
+  {
+    "id": 5,
+    "Author": "Haramsh",
+    "BookName": "SQL",
+    "Category": "Data Base",
+    "ArticleName": "MySQL",
+    "Content": "MySQL is a beautiful langauge."
+  }
+]

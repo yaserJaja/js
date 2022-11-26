@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- <input type="number" id="money">
+  <button onclick="manipulate('ADD_MONEY')">Add</button>
+  <button onclick="manipulate('WITHDRAW_MONEY')">Wirhdraw</button>
+  <div id="msg"></div> -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/redux/4.2.0/redux.js" integrity="sha512-8clKd0Zb9EeWqWE0gzlNxwWIjzYlYZ9cAsGcGM7gPsE+SKUxY6zZmLhrWqHMYQqbNCSwy21bn/TtA4zTQ+edag==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/redux-thunk/2.4.1/redux-thunk.js" integrity="sha512-0TKyNHv9PkDo7z+DhCIhS7wxeRxSRPooFaFZA/cf1EwwWAZ1J3ZJZP0kViiIvX6QVlRMA+etu9HzP7Iy5mqRkA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script>
+    // Types:
+    const ADD_PRODUCT = 'ADD_PRODUCT'
+    const GET_PRODUCTS = 'GET_PRODUCTS'
+    const DISPOSIT_MONEY = 'DISPOSIT_MONEY'
+    const WITHDRAW_MONEY = 'WITHDRAW_MONEY'
+    // Actions Creators:
+    const getProducts = (products) => {
+      return {
+        type: GET_PRODUCTS,
+        payload: products
+      }
+    }
+    const fetchProducts = () => {
+      return async (dispatch) => {
+        const res = await fetch('https://fakestoreapi.com/products')
+        const data = await res.json();
+        dispatch(getProducts(data))
+      }
+    }
+    const addProduct = (product) => {
+      return {
+        type: ADD_PRODUCT,
+        payload: product,
+      }
+    }
+    const disposit = (amount) => {
+      return {
+        type: DISPOSIT_MONEY,
+        payload: amount,
+      }
+    }
+    const withdraw = (amount) => {
+      return {
+        type: WITHDRAW_MONEY,
+        payload: amount,
+      }
+    }
+    // Reducers:
+    const ProductsReducer = (state = [], action) => {
+      switch(action.type) {
+        case GET_PRODUCTS:
+          return [...action.payload]
+        case ADD_PRODUCT: 
+          return [...state, action.payload]
+        default:
+          return state
+      }
+    }
+    const bankReducer = (state = 1000, action) => {
+      switch(action.type) {
+        case DISPOSIT_MONEY: 
+          return state + action.payload
+        case WITHDRAW_MONEY: 
+          return state - action.payload
+        default: 
+          return state
+      }
+    }
+
+    // Store:
+    const appReducer = Redux.combineReducers({
+      bank: bankReducer,
+      products: ProductsReducer
+    })
+
+    const store = Redux.createStore(appReducer, Redux.applyMiddleware(ReduxThunk))
+
+    store.dispatch(fetchProducts())
+    
+    store.subscribe(() => {
+      console.log(store.getState());
+    })
+    
+  </script>
+  <!-- <script>
+    let money = document.getElementById('money')
+    let msg = document.getElementById('msg')
+
+    const action = {
+      type: "",
+      value: 0
+    } 
+
+    money.onkeyup = function () {
+      action.value = Number(money.value)
+    }
+
+    const reducer = (state = 1000, action) => {
+      switch(action.type) {
+        case 'WITHDRAW_MONEY':
+          return state - action.value;
+          break;
+        case 'ADD_MONEY':
+          return state + action.value;
+          break;
+        default:
+          return state;
+      }
+    }
+
+    const store = Redux.createStore(reducer)
+
+    store.subscribe(() => {
+      console.log(store.getState());
+    })
+
+    function manipulate (type, value) {
+      action.type = type;
+      store.dispatch(action)
+      msg.innerText = 'You have ' + store.getState() + '$'
+    }
+  </script> -->
+</body> 
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AJAX</title>
+    <style>
+      table {
+        width: 80%;
+        border: 1px solid black;
+        border-collapse: collapse;
+        text-align: center;
+        font-family: system-ui;
+        margin: auto;
+      }
+      td,
+      th {
+        border: 2px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <table>
+      <thead>
+        <tr>
+          <th>UserID</th>
+          <th>ID</th>
+          <th>Tilte</th>
+          <th>Body</th>
+        </tr>
+      </thead>
+      <tbody id="tbody"></tbody>
+    </table>
+    <script>
+      let async = new XMLHttpRequest();
+      async.open("GET", "https://jsonplaceholder.typicode.com/posts");
+      async.send();
+      async.onreadystatechange = function () {
+        if (this.readyState === 4 && this.status === 200) {
+          let data = JSON.parse(this.responseText);
+          let tbody = document.getElementById("tbody");
+          for (i = 0; i < data.length; i++) {
+            let tr = document.createElement("tr");
+            let userId = document.createTextNode(data[i].userId);
+            let id = document.createTextNode(data[i].id);
+            let title = document.createTextNode(data[i].title);
+            let body = document.createTextNode(data[i].body);
+            let arr = [userId, id, title, body];
+            for (j = 0; j < Object.keys(data[i]).length; j++) {
+              let td = document.createElement("td");
+              td.appendChild(arr[j]);
+              tr.append(td);
+            }
+            tbody.append(tr);
+          }
+        }
+      };
+    </script>
+  </body>
+</html>

@@ -1,0 +1,11 @@
+identifier
+debug
+compiler
+case sensitive
+built-in Function
+Asynchronous
+Synchronous
+readyState
+status
+responseText
+counter

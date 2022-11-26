@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // const getData = (apiLink) => {
+      //   return new Promise((resolve, rejected) => {
+      //     let async = new XMLHttpRequest();
+      //     async.open("GET", apiLink);
+      //     async.send();
+      //     async.onload = function () {
+      //       if (this.readyState === 4 && this.status === 200) {
+      //         resolve(JSON.parse(this.responseText));
+      //       } else {
+      //         rejected(Error("Not Found Data!"));
+      //       }
+      //     };
+      //   });
+      // };
+
+      // getData("https://api.github.com/users/elzerowebschool/repos")
+      //   .then((Data) => {
+      //     console.log(Data);
+      //   })
+      //   .catch((reason) => {
+      //     console.log(reason);
+      //   });
+    </script>
+    <script>
+      // fetch("https://api.github.com/users/elzerowebschool/repos")
+      //   .then((promise) => {
+      //     let data = promise.json();
+      //     return data;
+      //   })
+      //   .then((data) => {
+      //     console.log(data[0]);
+      //   });
+    </script>
+    <script>
+      // async function fetchData() {
+      //     let Data =  await fetch(
+      //       "https://api.github.com/users/elzerowebschool/repos"
+      //     );
+      //     const d = await Data.json()
+      //     console.log(d);
+      //   }    
+      // fetchData();
+
+      fetch("https://api.github.com/users/elzerowebschool/repos")
+      .then(res => res.json())
+      .then(data => console.log(data))
+    </script>
+  </body>
+</html>

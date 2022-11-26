@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JSON</title>
+    <style>
+      table {
+        width: 80%;
+        border: 1px solid black;
+        border-collapse: collapse;
+        text-align: center;
+        font-family: system-ui;
+        margin: auto;
+      }
+      td,
+      th {
+        border: 2px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <table>
+      <thead>
+        <tr>
+          <th>Username</th>
+          <th>Password</th>
+          <th>Age</th>
+          <th>IsMale</th>
+        </tr>
+      </thead>
+      <tbody id="tbody"></tbody>
+    </table>
+    <script>
+      let tbody = document.getElementById("tbody");
+      let jsonObj = `{"username": "Yaser", "password": "123456", "Age": 21, "IsMale": true}`;
+      let jsObj = JSON.parse(jsonObj);
+      let lenthJsObj = Object.keys(jsObj).length;
+      for (i = 0; i < 1; i++) {
+        let tr = document.createElement("tr");
+        for (j = 0; j < lenthJsObj; j++) {
+          let td = document.createElement("td");
+          let text = document.createTextNode(Object.values(jsObj)[j]);
+          td.append(text.data);
+          tr.append(td);
+        }
+        tbody.append(tr);
+      }
+    </script>
+  </body>
+</html>
